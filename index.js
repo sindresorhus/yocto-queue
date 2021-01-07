@@ -1,3 +1,10 @@
+/*
+`this._head` is an instance of Node which keeps track of its current value and nests another instance of Node that keeps the value that comes after it.
+When a value is provided to enqueue, the code needs to iterate through `this._head`, going deeper and deeper to find the last value. However, iterating through every single item is slow.
+
+This problem is solved by saving a reference to the last value as `this._tail` so that it can reference it to add a new value.
+*/
+
 class Node {
 	/// value;
 	/// next;
@@ -24,7 +31,6 @@ class Queue {
 		const node = new Node(value);
 
 		if (this._head) {
-			// Contains a reference to the newest item in the array (https://github.com/sindresorhus/yocto-queue/issues/1#issuecomment-755040520)
 			this._tail.next = node;
 			this._tail = node;
 		} else {
