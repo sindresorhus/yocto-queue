@@ -24,6 +24,7 @@ class Queue {
 		const node = new Node(value);
 
 		if (this._head) {
+			// Contains a reference to the newest item in the array (https://github.com/sindresorhus/yocto-queue/issues/1#issuecomment-755040520)
 			this._tail.next = node;
 			this._tail = node;
 		} else {
