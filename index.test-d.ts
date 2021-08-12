@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import Queue = require('.');
+import Queue from './index.js';
 
 const queue = new Queue<string>();
 queue.enqueue('🦄');

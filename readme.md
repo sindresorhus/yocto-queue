@@ -15,7 +15,7 @@ $ npm install yocto-queue
 ## Usage
 
 ```js
-const Queue = require('yocto-queue');
+import Queue from 'yocto-queue';
 
 const queue = new Queue();
 

@@ -1,4 +1,4 @@
-declare class Queue<ValueType> implements Iterable<ValueType> {
+export default class Queue<ValueType> implements Iterable<ValueType> {
 	/**
 	The size of the queue.
 	*/
@@ -11,7 +11,7 @@ declare class Queue<ValueType> implements Iterable<ValueType> {
 
 	@example
 	```
-	import Queue = require('yocto-queue');
+	import Queue from 'yocto-queue';
 
 	const queue = new Queue();
 
@@ -52,5 +52,3 @@ declare class Queue<ValueType> implements Iterable<ValueType> {
 	*/
 	clear(): void;
 }
-
-export = Queue;

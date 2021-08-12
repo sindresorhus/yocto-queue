@@ -1,5 +1,5 @@
 import test from 'ava';
-import Queue from '.';
+import Queue from './index.js';
 
 test('.enqueue()', t => {
 	const queue = new Queue();
