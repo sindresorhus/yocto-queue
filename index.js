@@ -46,6 +46,10 @@ export default class Queue {
 		return current.value;
 	}
 
+	peek() {
+		return this.#head?.value;
+	}
+
 	clear() {
 		this.#head = undefined;
 		this.#tail = undefined;

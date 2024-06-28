@@ -20,6 +20,19 @@ test('.dequeue()', t => {
 	t.is(queue.dequeue(), undefined);
 });
 
+test('.peek()', t => {
+	const queue = new Queue();
+	t.is(queue.peek(), undefined);
+	queue.enqueue('🦄');
+	t.is(queue.peek(), '🦄');
+	queue.enqueue('🌈');
+	t.is(queue.peek(), '🦄');
+	queue.dequeue();
+	t.is(queue.peek(), '🌈');
+	queue.dequeue();
+	t.is(queue.peek(), undefined);
+});
+
 test('.clear()', t => {
 	const queue = new Queue();
 	queue.clear();

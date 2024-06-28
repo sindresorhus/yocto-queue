@@ -48,6 +48,13 @@ export default class Queue<ValueType> implements Iterable<ValueType> {
 	dequeue(): ValueType | undefined;
 
 	/**
+	Get the next value in the queue without removing it.
+
+	@returns The value or `undefined` if the queue is empty.
+	*/
+	peek(): ValueType | undefined;
+
+	/**
 	Clear the queue.
 	*/
 	clear(): void;

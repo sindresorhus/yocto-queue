@@ -51,6 +51,12 @@ Remove the next value in the queue.
 
 Returns the removed value or `undefined` if the queue is empty.
 
+#### `.peek()`
+
+Get the next value in the queue without removing it.
+
+Returns the value or `undefined` if the queue is empty.
+
 #### `.clear()`
 
 Clear the queue.
