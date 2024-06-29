@@ -47,7 +47,14 @@ export default class Queue {
 	}
 
 	peek() {
-		return this.#head?.value;
+		if (!this.#head) {
+			return;
+		}
+
+		return this.#head.value;
+
+		// TODO: Node.js 18.
+		// return this.#head?.value;
 	}
 
 	clear() {
