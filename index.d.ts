@@ -33,7 +33,19 @@ export default class Queue<ValueType> implements Iterable<ValueType> {
 	*/
 	constructor();
 
+	/**
+	Implements the iterable protocol, allowing the queue to be used in a for...of loop.
+	Iterates through the queue without removing elements.
+	If you want to remove the items as you consume it, use `drain()` instead.
+	*/
 	[Symbol.iterator](): IterableIterator<ValueType>;
+
+	/**
+	Returns an iterator that dequeues items as you consume it.
+	This allows you to empty the queue while processing its items.
+	If you want to *not* remove the items as you consume it, use the queue object as iterator.
+	*/
+	drain(): IterableIterator<ValueType>;
 
 	/**
 	Add a value to the queue.

@@ -70,11 +70,11 @@ test('iterable', t => {
 	t.deepEqual([...queue], ['🦄', '🌈']);
 });
 
-test('iterable dequeues (issue 11)', t => {
+test('drain iterable dequeues (issue 11)', t => {
 	const queue = new Queue();
 	queue.enqueue('🦄');
 	queue.enqueue('🌈');
-	for (const _ of queue) {}
+	for (const _ of queue.drain()) {}
 	t.deepEqual([...queue], []);
 	t.is(queue.size, 0);
 })

@@ -68,6 +68,15 @@ export default class Queue {
 	}
 
 	* [Symbol.iterator]() {
+		let current = this.#head;
+
+		while (current) {
+			yield current.value;
+			current = current.next;
+		}
+	}
+
+	* drain() {
 		let current;
 		while ((current = this.dequeue()) !== undefined) {
 			yield current;
