@@ -36,7 +36,7 @@ export default class Queue<ValueType> implements Iterable<ValueType> {
 	/**
 	The instance is an [`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols), which means you can iterate over the queue front to back with a “for…of” loop. Using the iterator will not remove the items from the queue. If you want that, use `drain()` instead.
  
- 	You can also use spreading to convert the queue to an array. Don't do this unless you really need to though, since it's slow.
+	You can also use spreading to convert the queue to an array. Don't do this unless you really need to though, since it's slow.
 	*/
 	[Symbol.iterator](): IterableIterator<ValueType>;
 
