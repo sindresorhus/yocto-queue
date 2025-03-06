@@ -39,7 +39,9 @@ console.log(queue.dequeue());
 
 ### `queue = new Queue()`
 
-The instance is an [`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols), which means you can iterate over the queue front to back with a “for…of” loop, or use spreading to convert the queue to an array. Don't do this unless you really need to though, since it's slow.
+The instance is an [`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols), which means you can iterate over the queue front to back with a “for…of” loop. Using the iterator will not remove the items from the queue. If you want that, use [`drain()`](#drain) instead.
+
+You can also use spreading to convert the queue to an array. Don't do this unless you really need to though, since it's slow.
 
 #### `.enqueue(value)`
 
@@ -56,6 +58,14 @@ Returns the removed value or `undefined` if the queue is empty.
 Get the next value in the queue without removing it.
 
 Returns the value or `undefined` if the queue is empty.
+
+#### `.drain()`
+
+Returns an iterator that dequeues items as you consume it.
+
+This allows you to empty the queue while processing its items.
+
+If you want to not remove items as you consume it, use the `Queue` object as an iterator.
 
 #### `.clear()`
 

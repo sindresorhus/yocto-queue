@@ -75,4 +75,11 @@ export default class Queue {
 			current = current.next;
 		}
 	}
+
+	* drain() {
+		let current;
+		while ((current = this.dequeue()) !== undefined) {
+			yield current;
+		}
+	}
 }
