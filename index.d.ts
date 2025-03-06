@@ -34,16 +34,18 @@ export default class Queue<ValueType> implements Iterable<ValueType> {
 	constructor();
 
 	/**
-	Implements the iterable protocol, allowing the queue to be used in a for...of loop.
-	Iterates through the queue without removing elements.
-	If you want to remove the items as you consume it, use `drain()` instead.
+	The instance is an [`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols), which means you can iterate over the queue front to back with a “for…of” loop. Using the iterator will not remove the items from the queue. If you want that, use `drain()` instead.
+ 
+ 	You can also use spreading to convert the queue to an array. Don't do this unless you really need to though, since it's slow.
 	*/
 	[Symbol.iterator](): IterableIterator<ValueType>;
 
 	/**
 	Returns an iterator that dequeues items as you consume it.
+
 	This allows you to empty the queue while processing its items.
-	If you want to *not* remove the items as you consume it, use the queue object as iterator.
+
+	If you want to not remove items as you consume it, use the `Queue` object as an iterator.
 	*/
 	drain(): IterableIterator<ValueType>;
 
