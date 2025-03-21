@@ -73,8 +73,9 @@ test('iterable', t => {
 test('.drain()', t => {
 	const queue = new Queue();
 	queue.enqueue('🦄');
+	queue.enqueue(undefined);
 	queue.enqueue('🌈');
-	for (const _ of queue.drain()) {}
+	t.deepEqual([...queue.drain()], ['🦄', undefined, '🌈']);
 	t.deepEqual([...queue], []);
 	t.is(queue.size, 0);
 })
