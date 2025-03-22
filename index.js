@@ -77,9 +77,8 @@ export default class Queue {
 	}
 
 	* drain() {
-		let current;
-		while ((current = this.dequeue()) !== undefined) {
-			yield current;
+		while (this.#head) {
+			yield this.dequeue();
 		}
 	}
 }
