@@ -41,8 +41,13 @@ export default class Queue {
 			return;
 		}
 
-		this.#head = this.#head.next;
-		this.#size--;
+		const next = current.next;
+		if (next) {
+			this.#head = next;
+			this.#size--;
+		} else {
+			this.clear();
+		}
 		return current.value;
 	}
 
