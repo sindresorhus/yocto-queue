@@ -43,6 +43,12 @@ export default class Queue {
 
 		this.#head = this.#head.next;
 		this.#size--;
+
+		// Clean up tail reference when queue becomes empty
+		if (!this.#head) {
+			this.#tail = undefined;
+		}
+
 		return current.value;
 	}
 
